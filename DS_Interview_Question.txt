@@ -1,0 +1,37 @@
+
+Q 4. Explain what precision and recall are. How do they relate to the ROC curve?
+Calculating precision and recall is actually quite easy. 
+Imagine there are 100 positive cases among 10,000 cases. 
+You want to predict which ones are positive, 
+and you pick 200 to have a better chance of catching many of the 100 positive cases.  
+You record the IDs of your predictions, and when you get the actual results you sum up how many times you were right or wrong. 
+There are four ways of being right or wrong:
+
+TN / True Negative: case was negative and predicted negative
+TP / True Positive: case was positive and predicted positive
+FN / False Negative: case was positive but predicted negative
+FP / False Positive: case was negative but predicted positive
+
+ROC curve represents a relation between sensitivity (RECALL) and specificity(NOT PRECISION) and is commonly used to measure 
+the performance of binary classifiers. However, when dealing with highly skewed datasets, 
+Precision-Recall (PR) curves give a more representative picture of performance. 
+
+Q 10. Is it better to have too many false positives, or too many false negatives? Explain.
+
+It depends on the question as well as on the domain for which we are trying to solve the question. 
+
+In medical testing, false negatives may provide a falsely reassuring message to patients and physicians that disease is absent, 
+when it is actually present. This sometimes leads to inappropriate or inadequate treatment of both the patient and their disease. 
+So, it is desired to have too many false positive. 
+
+For spam filtering, a false positive occurs when spam filtering or spam blocking techniques wrongly classify 
+a legitimate email message as spam and, as a result, interferes with its delivery. While most anti-spam tactics 
+can block or filter a high percentage of unwanted emails, doing so without creating significant false-positive results 
+is a much more demanding task. So, we prefer too many false negatives over many false positives. 
+
+Q 11.  What is selection bias, why is it important and how can you avoid it?
+Selection bias, in general, is a problematic situation in which error is introduced due to a non-random population sample. 
+For example, if a given sample of 100 test cases was made up of a 60/20/15/5 split of 4 classes which actually occurred in relatively 
+equal numbers in the population, then a given model may make the false assumption that probability could be the determining predictive
+factor. Avoiding non-random samples is the best way to deal with bias; however, when this is impractical, techniques such as resampling,
+boosting, and weighting are strategies which can be introduced to help deal with the situation. 
