@@ -1,5 +1,5 @@
 
-Q 4. Explain what precision and recall are. How do they relate to the ROC curve?
+Q4. Explain what precision and recall are. How do they relate to the ROC curve?
 Calculating precision and recall is actually quite easy. 
 Imagine there are 100 positive cases among 10,000 cases. 
 You want to predict which ones are positive, 
@@ -16,8 +16,65 @@ ROC curve represents a relation between sensitivity (RECALL) and specificity(NOT
 the performance of binary classifiers. However, when dealing with highly skewed datasets, 
 Precision-Recall (PR) curves give a more representative picture of performance. 
 
-Q 10. Is it better to have too many false positives, or too many false negatives? Explain.
 
+Q5. How can you prove that one improvement you've brought to an algorithm is really an improvement over not doing anything?
+Often it is observed that in the pursuit of rapid innovation (aka "quick fame"), the principles of scientific methodology are violated leading to misleading innovations, i.e. appealing insights that are confirmed without rigorous validation. One such scenario is the case that given the task of improving an algorithm to yield better results, you might come with several ideas with potential for improvement. 
+
+An obvious human urge is to announce these ideas ASAP and ask for their implementation. When asked for supporting data, often limited results are shared, which are very likely to be impacted by selection bias (known or unknown) or a misleading global minima (due to lack of appropriate variety in test data). 
+
+Data scientists do not let their human emotions overrun their logical reasoning. While the exact approach to prove that one improvement you've brought to an algorithm is really an improvement over not doing anything would depend on the actual case at hand, there are a few common guidelines:
+Ensure that there is no selection bias in test data used for performance comparison
+Ensure that the test data has sufficient variety in order to be symbolic of real-life data (helps avoid overfitting)
+Ensure that "controlled experiment" principles are followed i.e. while comparing performance, the test environment (hardware, etc.) must be exactly the same while running original algorithm and new algorithm
+Ensure that the results are repeatable with near similar results
+Examine whether the results reflect local maxima/minima or global maxima/minima
+
+
+Q6. What is root cause analysis?
+Root cause analysis (RCA) is a method of problem solving used for identifying the root causes of faults or problems. 
+A factor is considered a root cause if removal thereof from the problem-fault-sequence prevents the final undesirable event from recurring; whereas a causal factor is one that affects an event's outcome, but is not a root cause.
+
+Root cause analysis was initially developed to analyze industrial accidents, but is now widely used in other areas, such as healthcare, project management, or software testing. 
+
+
+Q7. Are you familiar with price optimization, price elasticity, inventory management, competitive intelligence? Give examples.
+Those are economics terms that are not frequently asked of Data Scientists but they are useful to know. 
+
+Price optimization is the use of mathematical tools to determine how customers will respond to different prices for its products and services through different channels. 
+
+Big Data and data mining enables use of personalization for price optimization. Now companies like Amazon can even take optimization further and show different prices to different visitors, based on their history, although there is a strong debate about whether this is fair. 
+
+Price elasticity in common usage typically refers to
+Price elasticity of demand, a measure of price sensitivity. It is computed as: 
+Price Elasticity of Demand = % Change in Quantity Demanded / % Change in Price.
+
+Similarly, Price elasticity of supply is an economics measure that shows how the quantity supplied of a good or service responds to a change in its price. 
+
+Inventory management is the overseeing and controlling of the ordering, storage and use of components that a company will use in the production of the items it will sell as well as the overseeing and controlling of quantities of finished products for sale. 
+
+Wikipedia defines 
+Competitive intelligence: the action of defining, gathering, analyzing, and distributing intelligence about products, customers, competitors, and any aspect of the environment needed to support executives and managers making strategic decisions for an organization.
+
+Tools like Google Trends, Alexa, Compete, can be used to determine general trends and analyze your competitors on the web. 
+
+
+Q8. What is statistical power?
+Wikipedia defines Statistical power or sensitivity of a binary hypothesis test is the probability that the test correctly rejects the null hypothesis (H0) when the alternative hypothesis (H1) is true. 
+
+To put in another way, Statistical power is the likelihood that a study will detect an effect when the effect is present. The higher the statistical power, the less likely you are to make a Type II error (concluding there is no effect when, in fact, there is). 
+
+
+Q9. Explain what resampling methods are and why they are useful. Also explain their limitations.
+Classical statistical parametric tests compare observed statistics to theoretical sampling distributions. 
+Resampling a data-driven, not theory-driven methodology which is based upon repeated sampling within the same sample. 
+
+Resampling refers to methods for doing one of these
+Estimating the precision of sample statistics (medians, variances, percentiles) by using subsets of available data (jackknifing) or drawing randomly with replacement from a set of data points (bootstrapping)
+Exchanging labels on data points when performing significance tests (permutation tests, also called exact tests, randomization tests, or re-randomization tests)
+Validating models by using random subsets (bootstrapping, cross validation)
+
+
+Q10. Is it better to have too many false positives, or too many false negatives? Explain.
 It depends on the question as well as on the domain for which we are trying to solve the question. 
 
 In medical testing, false negatives may provide a falsely reassuring message to patients and physicians that disease is absent, 
@@ -29,9 +86,121 @@ a legitimate email message as spam and, as a result, interferes with its deliver
 can block or filter a high percentage of unwanted emails, doing so without creating significant false-positive results 
 is a much more demanding task. So, we prefer too many false negatives over many false positives. 
 
-Q 11.  What is selection bias, why is it important and how can you avoid it?
+
+Q11.  What is selection bias, why is it important and how can you avoid it?
 Selection bias, in general, is a problematic situation in which error is introduced due to a non-random population sample. 
 For example, if a given sample of 100 test cases was made up of a 60/20/15/5 split of 4 classes which actually occurred in relatively 
 equal numbers in the population, then a given model may make the false assumption that probability could be the determining predictive
 factor. Avoiding non-random samples is the best way to deal with bias; however, when this is impractical, techniques such as resampling,
 boosting, and weighting are strategies which can be introduced to help deal with the situation. 
+
+
+Q12. Explain what is overfitting and how would you control for it.
+Overfitting is finding spurious results that are due to chance and cannot be reproduced by subsequent studies. 
+
+Several methods can be used to avoid "overfitting" the data
+Try to find the simplest possible hypothesis
+Regularization (adding a penalty for complexity)
+Randomization Testing (randomize the class variable, try your method on this data - if it find the same strong results, something is wrong)
+Nested cross-validation  (do feature selection on one level, then run entire method in cross-validation on outer level)
+Adjusting the False Discovery Rate
+
+Q13. Give an example of how you would use experimental design to answer a question about user behavior.
+
+Step 1: Formulate the Research Question: 
+What are the effects of photo size on user visited ratings? 
+
+Step 2: Identify variables: 
+We identify the cause & effect. Independent variable -photo size, Dependent variable- user visited rating
+
+Step 3: Generate Hypothesis: 
+Lower page download time will have more effect on the user satisfaction rating for a web page. Here the factor we analyze is page load time. 
+
+Step 4: Determine Experimental Design. 
+We consider experimental complexity i.e vary one factor at a time or multiple factors at one time in which case we use factorial design (2^k design). A design is also selected based on the type of objective (Comparative, Screening, Response surface) & number of factors. 
+
+Here we also identify within-participants, between-participants, and mixed model.For e.g.: There are two versions of a page, one with Buy button (call to action) on left and the other version has this button on the right. 
+
+Within-participants design - both user groups see both versions. 
+
+Between-participants design - one group of users see version A & the other user group version B. 
+
+Step 5: Develop experimental task & procedure: 
+Detailed description of steps involved in the experiment, tools used to measure user behavior, goals and success metrics should be defined. Collect qualitative data about user engagement to allow statistical analysis. 
+
+Step 6: Determine Manipulation & Measurements 
+
+Manipulation: One level of factor will be controlled and the other will be manipulated. We also identify the behavioral measures:
+Latency- time between a prompt and occurrence of behavior (how long it takes for a user to click buy after being presented with products).
+Frequency- number of times a behavior occurs (number of times the user clicks on a given page within a time)
+Duration-length of time a specific behavior lasts(time taken to add all products)
+Intensity-force with which a behavior occurs ( how quickly the user purchased a product)
+
+Step 7: Analyze results 
+Identify user behavior data and support the hypothesis or contradict according to the observations made for e.g. how majority of users satisfaction ratings compared with page load times. 
+
+Q14. What method do you use to determine whether the statistics published in an article (or appeared in a newspaper or other media) are either wrong or presented to support the author's point of view, rather than correct, comprehensive factual information on a specific subject?
+
+A simple rule is  if some statistics are published in a newspaper, then they are wrong. 
+
+Here is a more serious answer by Anmol Rajpurohit. 
+
+Every media organization has a target audience. This choice impacts a lot of decisions such as which article to publish, how to phrase an article, what part of an article to highlight, how to tell a given story, etc. 
+
+In determining the validity of statistics published in any article, one of the first steps will be to examine the publishing agency and its target audience. Even if it is the same news story involving statistics, you will notice that it will be published very differently across Fox News vs. WSJ vs. ACM/IEEE journals. So, data scientists are smart about where to get the news from (and how much to rely on the stories based on sources!). 
+
+
+Q15. Explain Edward Tufte's concept of "chart junk."
+
+Chartjunk refers to all visual elements in charts and graphs that are not necessary to comprehend the information represented on the graph, or that distract the viewer from this information. 
+The term chartjunk was coined by Edward Tufte in his 1983 book The Visual Display of Quantitative Information. 
+
+
+Q16. How would you screen for outliers and what should you do if you find one?
+Some methods to screen outliers are z-scores, modified z-score, box plots, Grubb's test, Tietjen-Moore test exponential smoothing, Kimber test for exponential distribution and moving window filter algorithm. However two of the robust methods in detail are: 
+
+Inter Quartile Range 
+An outlier is a point of data that lies over 1.5 IQRs below the first quartile (Q1) or above third quartile (Q3) in a given data set.
+High = (Q3) + 1.5 IQR
+Low = (Q1) - 1.5 IQR
+Tukey Method 
+
+It uses interquartile range to filter very large or very small numbers. It is practically the same method as above except that it uses the concept of "fences". The two values of fences are:
+Low outliers = Q1 - 1.5(Q3 - Q1) = Q1 - 1.5(IQR)
+High outliers = Q3 + 1.5(Q3 - Q1) = Q3 + 1.5(IQR)
+
+Anything outside of the fences is an outlier. 
+When you find outliers, you should not remove it without a qualitative assessment because that way you are altering the data and making it no longer pure. It is important to understand the context of analysis or importantly "The Why question - Why an outlier is different from other data points?" 
+This reason is critical. If outliers are attributed to error, you may throw it out but if they signify a new trend, pattern or reveal a valuable insight into the data you should retain it. 
+
+
+Q17. How would you use either the extreme value theory, Monte Carlo simulations or mathematical statistics (or anything else) to correctly estimate the chance of a very rare event?
+
+Extreme value theory (EVT) focuses on rare events and extremes, as opposed to classical approaches to statistics which concentrate on average behaviors. EVT states that there are 3 types of distributions needed to model the the extreme data points of a collection of random observations from some distribution: the Gumble, Frechet, and Weibull distributions, also known as the Extreme Value Distributions (EVD) 1, 2, and 3, respectively. 
+
+The EVT states that, if you were to generate N data sets from a given distribution, and then create a new dataset containing only the maximum values of these N data sets, this new dataset would only be accurately described by one of the EVD distributions: Gumbel, Frechet, or Weibull. The Generalized Extreme Value Distribution (GEV) is, then, a model combining the 3 EVT models as well as the EVD model. 
+
+Knowing the models to use for modeling our data, we can then use the models to fit our data, and then evaluate. Once the best fitting model is found, analysis can be performed, including calculating possibilities. 
+
+Q18.What is a recommendation engine? How does it work?
+We are all familiar now with recommendations from Netflix - "Other Movies you might enjoy" or from Amazon - Customers who bought X also bought Y.,Such systems are called recommendation engines or more broadly recommender systems. 
+
+They typically produce recommendations in one of two ways: using collaborative or content-based filtering.
+
+Collaborative filtering methods build a model based on users past behavior (items previously purchased, movies viewed and rated, etc) and use decisions made by current and other users. This model is then used to predict items (or ratings for items) that the user may be interested in. 
+
+Content-based filtering methods use features of an item to recommend additional items with similar properties. These approaches are often combined in Hybrid Recommender Systems.
+
+Q19.Explain what a false positive and a false negative are. Why is it important to differentiate these from each other?
+In binary classification (or medical testing), False positive is when an algorithm (or test) indicates presence of a condition, when in reality it is absent. A false negative is when an algorithm (or test) indicates absence of a condition, when in reality it is present. 
+
+In statistical hypothesis testing false positive is also called type I error and false negative - type II error. 
+
+It is obviously very important to distinguish and treat false positives and false negatives differently because the costs of such errors can be hugely different. 
+
+For example, if a test for serious disease is false positive (test says disease, but person is healthy), then an extra test will be made that will determine the correct diagnosis. However, if a test is false negative (test says healthy, but person has disease), then treatment will be done and person may die as a result. 
+
+
+Q20.Which tools do you use for visualization? What do you think of Tableau? R? SAS? (for graphs). How to efficiently represent 5 dimension in a chart (or in a video)?
+
+
