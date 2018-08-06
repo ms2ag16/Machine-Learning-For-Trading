@@ -6,8 +6,7 @@ class BagLearner(object):
         self.bags=bags
         self.boost=boost
         self.kwargs=kwargs
-    def author(self):
-        return 'msun85'
+
     def addEvidence(self, Xtrain, Ytrain):
         self.learners=[]
         for i in range(0,self.bags):
