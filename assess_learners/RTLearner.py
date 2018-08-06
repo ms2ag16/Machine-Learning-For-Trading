@@ -8,8 +8,6 @@ class RTLearner(object):
         self.verbose = verbose
         self.leaf_size = leaf_size
 
-    def author(self):
-        return 'msun85'
 
     def addEvidence(self, dataX, dataY):
         """
