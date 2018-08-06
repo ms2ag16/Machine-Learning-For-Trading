@@ -20,9 +20,6 @@ class InsaneLearner(object):
         self.num=num
 
 
-    def author(self):
-        return 'msun85'
-
     def addEvidence(self, Xtrain, Ytrain):
         """
         @summary: Add training data to learner
